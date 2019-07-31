@@ -1,0 +1,30 @@
+.lead
+{
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.display-3
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px #6d6868;
+    text-align: center;
+}
+
+.bgimg
+{
+    background-image: url(./../bgimage.jpg);
+    height: 100vh;
+    opacity: 0.7;
+    background-size: cover, contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer
+{
+    position: relative;
+    margin-bottom: 0%;
+
+}
