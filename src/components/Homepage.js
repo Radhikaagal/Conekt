@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 //import logo from "./../Images/homepageimg.jpg";
 import "./../styles/Homepage.css";
-import {Link, BrowserRouter as Router} from 'react-router-dom';
+import {Link, BrowserRouter as Router, Route} from 'react-router-dom';
+import Signup from "./../components/Signup";
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
   } from 'reactstrap';
   import { Jumbotron, Container, Button } from 'reactstrap';
 
@@ -30,7 +30,7 @@ import {
     return (
     <Router>
       <div className="bgimg">
-        <div className="common">
+        <div>
         <Navbar color="dark" light expand="md">
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -39,7 +39,7 @@ import {
                 <Link to="/"><Button>Login</Button></Link>
               </NavItem>&nbsp;&nbsp;
               <NavItem className="options">
-                <Link to="/"><Button>Sign Up</Button></Link>
+                <Link to="/signup"><Button>Sign Up</Button></Link>
               </NavItem>
             </Nav>
           </Collapse>
@@ -53,6 +53,7 @@ import {
     </Jumbotron> 
     </div>
     </div>
+    <Route path ="/signup" component={Signup} />
     </div>
     </Router>  
     );
