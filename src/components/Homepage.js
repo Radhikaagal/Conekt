@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
-import "./../styles/Homepage.css";
-import logo from "./../Images/homepageimg.jpg";
+//import logo from "./../Images/homepageimg.jpg";
+//import "./../styles/Homepage.css";
 
 class Homepage extends Component{
     render()
     {
         return(
-        <img src={logo} className="bgimg" />
-            
-        
-        
-    
-            
+            <div>
+                <nav className="navbar navbar-dark navabr-expand-lg">
+                    <div className="collapse navbar-collapse">
+                        <ul className="navbar-nav mr-auto">
+                            <li className="navbar-item">LOGIN</li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>   
         );
     }
 }
