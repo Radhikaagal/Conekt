@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import "./../styles/Homepage.css";
 import {Link, BrowserRouter as Router, Route} from 'react-router-dom';
 import Signup from "./../components/Signup";
+import Login from "./../components/Login";
 import {
   Collapse,
   Navbar,
@@ -16,6 +17,10 @@ import {
   constructor(props) {
     super(props);
 
+
+
+
+    
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
@@ -32,12 +37,12 @@ import {
       <div className="bgimg">
         <div>
         <Navbar color="dark" light expand="md">
-          
+
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="options">
-                <Link to="/"><Button>Login</Button></Link>
+                <Link to="/login"><Button>Login</Button></Link>
               </NavItem>&nbsp;&nbsp;
               <NavItem className="options">
                 <Link to="/signup"><Button>Sign Up</Button></Link>
@@ -55,6 +60,8 @@ import {
     </div>
     </div>
     <Route path ="/signup" component={Signup} />
+    <Route path ="/login" component={Login} />
+
     </div>
     </Router>  
     );
