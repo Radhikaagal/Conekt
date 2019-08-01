@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import Axios from 'axios';
 
 
  class Signup extends React.Component {
@@ -37,19 +38,25 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
     onSubmit(e){
         e.preventDefault();
 
-        console.log(`Form submitted`);
-        console.log(`username : ${this.state.username}`);
-        console.log(`email : ${this.state.email}`);
-        console.log(`password : ${this.state.password}`);
+        Axios.post('http://192.168.43.175:3000/users/register/',
+        {
+          userName:this.state.username,
+          email:this.state.email,
+          password:this.state.password
+        }).then((res)=>{console.log(res);
+      this.setState({
+      username : '',
+      email : '',
+      password: ''
+  });
 
-        this.setState({
-            username : '',
-            email : '',
-            password: ''
-        });
+  this.props.history.push("/");});}
 
-
-    }
+        // console.log(`Form submitted`);
+        // console.log(`username : ${this.state.username}`);
+        // console.log(`email : ${this.state.email}`);
+        // console.log(`password : ${this.state.password}`
+    
     
   render() {
     return (

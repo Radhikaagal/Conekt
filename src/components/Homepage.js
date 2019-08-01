@@ -32,6 +32,7 @@ import {
       <div className="bgimg">
         <div>
         <Navbar color="dark" light expand="md">
+          
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -45,7 +46,7 @@ import {
           </Collapse>
         </Navbar>
     <div>
-    <Jumbotron style={{background:'transparent',backgroundColor: 'lightblue'}}>
+    <Jumbotron style={{background:'transparent'}}>
         <Container fluid>
          <h1 className="display-3" align="center">Conekt</h1>
          <p className="lead" align="center">Find Your Group</p>
