@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Button, Form, FormGroup, Label} from 'reactstrap';
 import Axios from 'axios';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Newsfeed from "./../components/Newsfeed";
+
+
 class Login extends Component{
     constructor(props) {
         super(props);
@@ -40,7 +40,7 @@ class Login extends Component{
       username : '',
       password: ''
   });
-  this.props.history.push("/newsfeed");
+  this.props.history.push("/");
   });
 
       //   console.log(`Form submitted`);
@@ -50,8 +50,7 @@ class Login extends Component{
         
 }
   render() {
-    return (
-     <Router> 
+    return ( 
     <div className="FormCenter">
       <Form onSubmit={this.onSubmit} className="FormFields">
         <FormGroup className="FormField">
@@ -63,17 +62,13 @@ class Login extends Component{
           <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.onChangePassword} />
         </FormGroup>
         <FormGroup className="FormField">
-        <Route path="/newsfeed" component={Newsfeed}>
-          
         <Button size="lg" color="info" block type="submit">
            Sign-In
         </Button>
-        
-        </Route>
         </FormGroup>
       </Form> 
       </div>
-      </Router>
+     
       
     );
   }

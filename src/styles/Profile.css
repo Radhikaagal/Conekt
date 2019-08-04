@@ -1,0 +1,10 @@
+.bgimg2
+{
+    background: linear-gradient( #ececec,#9fd3c7,#385170,#142d4c);
+    height: 100vh;
+    display: flex;
+}
+.bgprofile
+{
+    background: white;
+}

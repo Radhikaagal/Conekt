@@ -32,7 +32,7 @@ import {
 
             <Route path="/" exact component={Signup}>
             </Route>
-            <Route path="/login" exact component={Login}>
+            <Route path="/login" component={Login}>
             </Route>
         </div>
 
