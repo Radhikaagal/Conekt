@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Button, Form, FormGroup, Label} from 'reactstrap';
 import Axios from 'axios';
 
 
@@ -50,37 +50,40 @@ import Axios from 'axios';
       password: ''
   });
 
-  this.props.history.push("/");});}
+  this.props.history.push("/");});
 
         // console.log(`Form submitted`);
         // console.log(`username : ${this.state.username}`);
         // console.log(`email : ${this.state.email}`);
-        // console.log(`password : ${this.state.password}`
-    
+        // console.log(`password : ${this.state.password}`);
+        // this.props.history.push("/");
+    }
     
   render() {
     return (
-    <div className="container-fluid" style={{width:'40%', backgroundColor: 'lightblue', opacity:'0.9', borderRadius: '20px' }}>
-      <Form onSubmit={this.onSubmit}>
-        <FormGroup>
-          <Label>Username</Label>
-          <Input type="text" value={this.state.username} onChange={this.onChangeUsername}  />
+      
+    <div className="FormCenter">
+      <Form onSubmit={this.onSubmit} className="FormFields">
+        <FormGroup className="FormField">
+          <Label className="FormField__Label"  htmlFor="name">Username</Label>
+          <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.state.username} onChange={this.onChangeUsername}  />
+        </FormGroup>
+        <FormGroup className="FormField">
+          <Label className="FormField__Label" htmlFor="email">Email</Label>
+          <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.onChangeEmail}  />
+        </FormGroup>
+        <FormGroup className="FormField">
+          <Label className="FormField__Label" htmlFor="password">Password</Label>
+          <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password"  value={this.state.password} onChange={this.onChangePassword} />
         </FormGroup>
         <FormGroup>
-          <Label>Email</Label>
-          <Input type="email"  value={this.state.email} onChange={this.onChangeEmail}  />
-        </FormGroup>
-        <FormGroup>
-          <Label>Password</Label>
-          <Input type="password" value={this.state.password} onChange={this.onChangePassword} />
-        </FormGroup>
-        <FormGroup>
-        <Button size="lg" color="secondary" block>
-            Submit
+        <Button size="lg" color="info" block type="submit">
+            Sign-Up
         </Button>
         </FormGroup>
       </Form> 
       </div>
+    
     );
   }
 }

@@ -1,69 +1,43 @@
 import React, {Component} from 'react';
-//import logo from "./../Images/homepageimg.jpg";
+import conekt from "./../conekt.png";
 import "./../styles/Homepage.css";
-import {Link, BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
 import Signup from "./../components/Signup";
 import Login from "./../components/Login";
+
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem
+  NavbarBrand
   } from 'reactstrap';
-  import { Jumbotron, Container, Button } from 'reactstrap';
+  
 
  class Homepage extends Component {
-  constructor(props) {
-    super(props);
-
-
-
-
-    
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
   render() {
     return (
-    <Router>
-      <div className="bgimg">
-        <div>
-        <Navbar color="dark" light expand="md">
+  <Router>
+     <div className="bgimg">
 
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem className="options">
-                <Link to="/login"><Button>Login</Button></Link>
-              </NavItem>&nbsp;&nbsp;
-              <NavItem className="options">
-                <Link to="/signup"><Button>Sign Up</Button></Link>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-    <div>
-    <Jumbotron style={{background:'transparent'}}>
-        <Container fluid>
+      <div className="App__Aside">
+        <NavLink exact to="/">
+          <NavbarBrand href="/"><img src={conekt} height="60px" alt="conektlogo" /></NavbarBrand>
+        </NavLink>
          <h1 className="display-3" align="center">Conekt</h1>
          <p className="lead" align="center">Find Your Group</p>
-        </Container>
-    </Jumbotron> 
-    </div>
-    </div>
-    <Route path ="/signup" component={Signup} />
-    <Route path ="/login" component={Login} />
+      </div>
+  
+      <div className="App__Form">
+          <div className="PageSwitcher">
+              <NavLink to="/login" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
+              <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
+            </div>
 
-    </div>
-    </Router>  
+            <Route path="/" exact component={Signup}>
+            </Route>
+            <Route path="/login" exact component={Login}>
+            </Route>
+        </div>
+
+      </div>
+    </Router>
     );
   }
 }
