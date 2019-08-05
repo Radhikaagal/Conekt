@@ -12,7 +12,7 @@ export default class FeedNavbar extends React.Component {
   render() {
     return (
       <Navbar color="light" light expand="md">
-        <NavbarBrand>HOME</NavbarBrand>
+        <NavbarBrand>{this.props.page}</NavbarBrand>
         <Collapse navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>

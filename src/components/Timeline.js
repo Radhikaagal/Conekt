@@ -11,7 +11,7 @@ export default class Timeline extends Component {
     return (
       <div className="bgimg">
         <div className="container">
-          <FeedNavbar />
+          <FeedNavbar page="HOME" />
           <div className="card-columns deck-container">
             <CardFeed
               pic={commute}

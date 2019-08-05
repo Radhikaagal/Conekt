@@ -1,19 +1,24 @@
 .bgimg {
-  background: linear-gradient(to left, #142d4c, #ececec);
-  height: 100vh;
   display: flex;
-}
-
-.navbar-container {
-  background: transparent;
-  align-content: flex-end;
 }
 
 .deck-container {
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 8%;
+  margin-top: 5%;
 }
-.card-container {
-  height: 50vh;
+
+.intro {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 5px #142d4c;
+  color: whitesmoke;
+}
+
+.reply {
+  background: #4f545a;
 }
