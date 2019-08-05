@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Button, Form, FormGroup, Label} from 'reactstrap';
 import Axios from 'axios';
 
 
@@ -31,7 +30,7 @@ class Login extends Component{
     
     onSubmit(e){
       e.preventDefault();
-        Axios.post('http://192.168.43.175:3000/users/login/',
+        Axios.post('https://conektapi.herokuapp.com/users/login/',
         {
           userId:this.state.username,
           password:this.state.password
@@ -40,7 +39,6 @@ class Login extends Component{
       username : '',
       password: ''
   });
-  this.props.history.push("/");
   });
 
       //   console.log(`Form submitted`);
@@ -51,22 +49,21 @@ class Login extends Component{
 }
   render() {
     return ( 
+    
     <div className="FormCenter">
-      <Form onSubmit={this.onSubmit} className="FormFields">
-        <FormGroup className="FormField">
-          <Label className="FormField__Label"  htmlFor="name">Username or Email</Label>
+      <form onSubmit={this.onSubmit} className="FormFields">
+        <div className="form-group FormField">
+          <label className="FormField__Label"  htmlFor="name">Username or Email</label>
           <input type="text" id="name" className="FormField__Input" placeholder="Enter your username or email" name="name" value={this.state.username} onChange={this.onChangeUsername}  />
-        </FormGroup>
-        <FormGroup className="FormField">
-          <Label className="FormField__Label" htmlFor="password">Password</Label>
+        </div>
+        <div className="form-group FormField">
+          <label className="FormField__Label" htmlFor="password">Password</label>
           <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.onChangePassword} />
-        </FormGroup>
-        <FormGroup className="FormField">
-        <Button size="lg" color="info" block type="submit">
-           Sign-In
-        </Button>
-        </FormGroup>
-      </Form> 
+        </div>
+        <div className="form-group FormField">
+        <input className="btn btn-info btn-block" color="info" type="submit" value="Sign-In" />
+        </div>
+      </form> 
       </div>
      
       

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import conekt from "./../conekt.png";
 import "./../styles/Homepage.css";
 import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
-import Signup from "./../components/Signup";
 import Login from "./../components/Login";
+import Signup from "./../components/Signup";
 
 import {
   NavbarBrand
@@ -15,8 +15,7 @@ import {
     return (
   <Router>
      <div className="bgimg">
-
-      <div className="App__Aside">
+      <div className="App__Aside ml-auto">
         <NavLink exact to="/">
           <NavbarBrand href="/"><img src={conekt} height="60px" alt="conektlogo" /></NavbarBrand>
         </NavLink>
@@ -29,11 +28,11 @@ import {
               <NavLink to="/login" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
               <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
             </div>
-
             <Route path="/" exact component={Signup}>
             </Route>
-            <Route path="/login" component={Login}>
+            <Route path="/login" exact component={Login}>
             </Route>
+           
         </div>
 
       </div>
