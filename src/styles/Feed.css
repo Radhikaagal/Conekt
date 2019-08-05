@@ -1,0 +1,19 @@
+.bgimg {
+  background: linear-gradient(to left, #142d4c, #ececec);
+  height: 100vh;
+  display: flex;
+}
+
+.navbar-container {
+  background: transparent;
+  align-content: flex-end;
+}
+
+.deck-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 8%;
+}
+.card-container {
+  height: 50vh;
+}
