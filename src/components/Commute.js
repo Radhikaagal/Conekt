@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./../styles/Feed.css";
+import axios from "axios";
 import FeedNavbar from "./Feed-Navbar";
 import PostsFeed from "./Posts-Feed";
 
