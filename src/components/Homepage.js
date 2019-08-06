@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import conekt from "./../conekt.png";
 import "./../styles/Homepage.css";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import Signup from "./Signup";
-import Login from "./Login";
-
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import Login from "./../components/Login";
+import Signup from "./../components/Signup";
+import Alert from "./../components/Alert";
 import { NavbarBrand } from "reactstrap";
 
 class Homepage extends Component {
   render() {
     return (
+
+  
+      
       <Router>
         <div className="bgimg">
           <div className="App__Aside">
@@ -44,10 +47,11 @@ class Homepage extends Component {
                 Sign Up
               </NavLink>
             </div>
-
+            <Alert />
             <Route path="/" exact component={Signup} />
             <Route path="/login" exact component={Login} />
           </div>
+ 
         </div>
       </Router>
     );

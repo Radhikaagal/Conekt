@@ -1,8 +1,9 @@
-import React, { Component, localStorage } from "react";
-import { Button, Form, FormGroup, Label } from "reactstrap";
+import React, { Component } from "react";
 import Axios from "axios";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Newsfeed from "./../components/Newsfeed";
+import { connect } from "react-redux";
+import { setAlert } from "./../actions/alerts";
+import PropTypes from "prop-types";
+import { login } from "./../actions/auth";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -10,14 +11,14 @@ class Login extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      username: "",
+      userId: "",
       password: ""
     };
   }
 
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      userId: e.target.value
     });
   }
 
@@ -29,20 +30,21 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const credentials = {
-      userId: this.state.username,
-      password: this.state.password
-    };
-    Axios.post("https://conektapi.herokuapp.com/users/login/", credentials)
-      .then(res => {
-        console.log(res.data.data.userName);
-        // localStorage.setItem("userToken", res.data.data.userToken);
-        // this.props.history.push("/newsfeed");
-      })
-      .then(() => this.props.history.push("/newsfeed"))
-      .catch(function(error) {
-        console.log(error);
-      });
+    this.props.login(this.state.userId, this.state.password);
+    //         Axios.post('https://conektapi.herokuapp.com/users/login/',
+    //         {
+    //           userId:this.state.username,
+    //           password:this.state.password
+    //         }).then((res)=>{console.log(res.data.data.userToken);
+    //       this.setState({
+    //       username : '',
+    //       password: ''
+    //   });
+    //   }).catch(error => {
+
+    //     this.props.setAlert(error.response.data.message,'danger');
+
+    // });
 
     this.setState({
       userId: "",
@@ -51,49 +53,55 @@ class Login extends Component {
   }
   render() {
     return (
-      <Router>
-        <div className="FormCenter">
-          <Form onSubmit={this.onSubmit} className="FormFields">
-            <FormGroup className="FormField">
-              <Label className="FormField__Label" htmlFor="name">
-                Username or Email
-              </Label>
-              <input
-                type="text"
-                id="name"
-                className="FormField__Input"
-                placeholder="Enter your username or email"
-                name="name"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-              />
-            </FormGroup>
-            <FormGroup className="FormField">
-              <Label className="FormField__Label" htmlFor="password">
-                Password
-              </Label>
-              <input
-                type="password"
-                id="password"
-                className="FormField__Input"
-                placeholder="Enter your password"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChangePassword}
-              />
-            </FormGroup>
-            <FormGroup className="FormField">
-              <Route path="/newsfeed" component={Newsfeed}>
-                <Button size="lg" color="info" block type="submit">
-                  Sign-In
-                </Button>
-              </Route>
-            </FormGroup>
-          </Form>
-        </div>
-      </Router>
+      <div className="FormCenter">
+        <form onSubmit={this.onSubmit} className="FormFields">
+          <div className="form-group FormField">
+            <label className="FormField__Label" htmlFor="name">
+              Username or Email
+            </label>
+            <input
+              type="text"
+              id="name"
+              className="FormField__Input"
+              placeholder="Enter your username or email"
+              name="name"
+              value={this.state.userId}
+              onChange={this.onChangeUsername}
+            />
+          </div>
+          <div className="form-group FormField">
+            <label className="FormField__Label" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="FormField__Input"
+              placeholder="Enter your password"
+              name="password"
+              value={this.state.password}
+              onChange={this.onChangePassword}
+            />
+          </div>
+          <div className="form-group FormField">
+            <input
+              className="btn btn-info btn-block"
+              color="info"
+              type="submit"
+              value="Sign-In"
+            />
+          </div>
+        </form>
+      </div>
     );
   }
 }
 
-export default Login;
+Login.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
+};
+export default connect(
+  null,
+  { setAlert, login }
+)(Login);

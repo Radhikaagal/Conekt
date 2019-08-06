@@ -7,11 +7,15 @@ export default class CardFeed extends Component {
     return (
       <div>
         <div className="card">
+<<<<<<< HEAD
           <img
             className="card-img-top"
             src={this.props.pic}
             alt="Functional card"
           />
+=======
+          <img className="card-img-top" src={this.props.pic} alt="whatever" />
+>>>>>>> d9de1f7d26289670cf316d06f621471cc62fbf84
           <div className="card-body">
             <h4 className="card-title">{this.props.title}</h4>
             <p className="card-text">{this.props.content}</p>
