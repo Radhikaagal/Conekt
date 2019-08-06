@@ -1,7 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
-
-
+import {connect} from 'react-redux';
+import {setAlert} from './../actions/alerts';
+import PropTypes from 'prop-types';
  class Signup extends React.Component {
     constructor(props) {
         super(props);
@@ -70,7 +71,9 @@ import Axios from 'axios';
           email:this.state.email,
           password:this.state.password,
           profile:{branch: this.state.branch}
-        }).then((res)=>{console.log(res.data.message);
+        }).then((res)=>{if(res.data.message){
+          this.props.setAlert("User registered successfully! Please verify your email to continue",'success');
+        }
       this.setState({
       username : '',
       email : '',
@@ -80,7 +83,7 @@ import Axios from 'axios';
 
   this.props.history.push("/");}).catch(error => {
     
-      console.log(error);
+      this.props.setAlert(error.response.data.message,'danger');
     
   });
 
@@ -133,4 +136,8 @@ import Axios from 'axios';
   }
 }
 
-export default Signup;
+Signup.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
+};
+export default connect(null, {setAlert})(Signup);

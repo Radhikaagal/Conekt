@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
-
-
+import {connect} from 'react-redux';
+import {setAlert} from './../actions/alerts';
+import PropTypes from 'prop-types';
+import { login } from './../actions/auth';
 class Login extends Component{
     constructor(props) {
         super(props);
@@ -9,14 +11,14 @@ class Login extends Component{
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            username : '',
+            userId : '',
             password: ''
         }
     }
 
     onChangeUsername(e){
         this.setState({
-            username: e.target.value
+            userId: e.target.value
         });
     }
 
@@ -30,16 +32,21 @@ class Login extends Component{
     
     onSubmit(e){
       e.preventDefault();
-        Axios.post('https://conektapi.herokuapp.com/users/login/',
-        {
-          userId:this.state.username,
-          password:this.state.password
-        }).then((res)=>{console.log(res.data.data.userToken);
-      this.setState({
-      username : '',
-      password: ''
-  });
-  });
+      this.props.login(this.state.userId,this.state.password);
+//         Axios.post('https://conektapi.herokuapp.com/users/login/',
+//         {
+//           userId:this.state.username,
+//           password:this.state.password
+//         }).then((res)=>{console.log(res.data.data.userToken);
+//       this.setState({
+//       username : '',
+//       password: ''
+//   });
+//   }).catch(error => {
+    
+//     this.props.setAlert(error.response.data.message,'danger');
+  
+// });
 
       //   console.log(`Form submitted`);
       //   console.log(`username : ${this.state.username}`);
@@ -54,7 +61,7 @@ class Login extends Component{
       <form onSubmit={this.onSubmit} className="FormFields">
         <div className="form-group FormField">
           <label className="FormField__Label"  htmlFor="name">Username or Email</label>
-          <input type="text" id="name" className="FormField__Input" placeholder="Enter your username or email" name="name" value={this.state.username} onChange={this.onChangeUsername}  />
+          <input type="text" id="name" className="FormField__Input" placeholder="Enter your username or email" name="name" value={this.state.userId} onChange={this.onChangeUsername}  />
         </div>
         <div className="form-group FormField">
           <label className="FormField__Label" htmlFor="password">Password</label>
@@ -71,4 +78,8 @@ class Login extends Component{
   }
 }
 
-export default Login;
+Login.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  login:PropTypes.func.isRequired
+};
+export default connect(null, {setAlert,login})(Login);
