@@ -1,10 +1,10 @@
-.bgimg2
-{
-    background: linear-gradient( #ececec,#9fd3c7,#385170,#142d4c);
-    height: 100vh;
-    display: flex;
-}
+@import url(https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap);
 .bgprofile
 {
     background: white;
+}
+
+.navheader{
+    font-family: 'Beth Ellen', cursive;
+    
 }

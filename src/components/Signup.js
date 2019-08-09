@@ -115,7 +115,7 @@ import PropTypes from 'prop-types';
         <div className="form-group FormField">
         <label className="FormField__Label">
           select your branch
-          <select className="custom-select" value={this.state.branch} onChange={this.onChangeOption}>
+          <select className="custom-select" editable="true"  value={this.state.branch} onChange={this.onChangeOption}>
               <option value="Computer Science and Enginnering">Computer Science and Enginnering</option>
               <option value="Information Science and Enginnering">Information Science and Enginnering</option>
               <option value="Electronics and Communications Enginnering">Electronics and Communications Enginnering</option>
@@ -127,7 +127,7 @@ import PropTypes from 'prop-types';
         </label>
         </div>
         <div className="form-group FormField">
-        <input className="btn btn-info btn-block"  color="info" type="submit" value="Sign-Up" />
+        <input className="btn btn-dark btn-block" type="submit" value="Sign-Up" />
         </div>
       </form> 
       </div>
@@ -137,7 +137,6 @@ import PropTypes from 'prop-types';
 }
 
 Signup.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired
 };
 export default connect(null, {setAlert})(Signup);

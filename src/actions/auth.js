@@ -1,16 +1,23 @@
 import axios from 'axios';
 import { setAlert } from './../actions/alerts';
+import setAuthToken from "./../utils/setAuthToken";
 import {
    
-    USER_LOADED,
-    AUTH_ERROR,
+    
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
     CLEAR_PROFILE
   } from './types';
 
+//load user
+export const loadUser = () => dispatch => {
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+};
 
+//login
 export const login = (userId, password) => async dispatch => {
     const config = {
       headers: {
@@ -25,10 +32,10 @@ export const login = (userId, password) => async dispatch => {
   
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: res.data
+        payload: res.data.data
       });
   
-      
+      dispatch(loadUser());
     } catch (err) {
       const msg = err.response.data.message;
   

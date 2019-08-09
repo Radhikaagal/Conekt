@@ -1,6 +1,8 @@
 import {
-    LOGIN_SUCCESS,
-    LOGIN_FAIL}
+    LOGIN_SUCCESS,USER_LOADED,
+    LOGIN_FAIL,
+    LOGOUT,ACCOUNT_DELETED
+  }
     from '../actions/types';
 
     const initialState = {
@@ -15,15 +17,15 @@ import {
       
         switch (type) {
           case USER_LOADED:
-            return {
-              ...state,
-              isAuthenticated: true,
-              loading: false,
-              user: payload
-            };
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: payload
+      };
          
           case LOGIN_SUCCESS:
-            localStorage.setItem('token', payload.data.userToken);
+            localStorage.setItem('token', payload.userToken);
             return {
               ...state,
               ...payload,
@@ -31,7 +33,7 @@ import {
               loading: false
             };
           
-          case AUTH_ERROR:
+          
           case LOGIN_FAIL:
           case LOGOUT:
           case ACCOUNT_DELETED:
