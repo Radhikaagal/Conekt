@@ -1,3 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower&display=swap) ;
+@import url(https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap);
+
+.navbar-custom{
+  font-family: 'Beth Ellen', cursive;
+  background:orangered;
+}
+
+
 .alert {
     padding: 0.8rem;
     margin: 1rem 0;

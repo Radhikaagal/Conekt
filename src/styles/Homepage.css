@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower&display=swap) ;
 @import url(https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap);
-.navbar-custom{
-  font-family: 'Beth Ellen', cursive;
-  background: orangered;
-}
+
 .lead
 {   font-weight: 100;
     letter-spacing: 1px;

@@ -1,10 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Beth+Ellen&display=swap);
-.bgprofile
-{
-    background: white;
+
+#head{
+    display: flex;
+    background:linear-gradient(to top left,white,orangered);
+    color:orangered;
+    height:15rem;
+    margin-bottom: 0.25rem;
+    padding-top: 2rem;
+    padding-left:3rem;
 }
 
-.navheader{
-    font-family: 'Beth Ellen', cursive;
-    
+
+#options{
+    display: flex;
+    height:2rem;
+    background: white;
+    color:red;
+    margin-left: 0;
+    margin-right:0;
+    text-align: center;
 }
+
+
+

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 import "./../styles/Feed.css";
-import FeedNavbar from "./Feed-Navbar";
+import Navbarr from "./Navbarr";
 import CardFeed from "./Cards-Feed";
 import commute from "./../commute.jpg";
 import dorm from "./../dorm.jpg";
@@ -8,10 +8,12 @@ import notes from "./../notes.png";
 
 export default class Timeline extends Component {
   render() {
+    console.log("inside timeline");
     return (
-      <div className="bgimg">
+      <Fragment>
+      <Navbarr />
         <div className="container">
-          <FeedNavbar />
+          
           <div className="card-columns deck-container">
             <CardFeed
               pic={commute}
@@ -33,7 +35,7 @@ export default class Timeline extends Component {
             />
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -3,7 +3,7 @@ import Homepage from "./components/Homepage";
 import Profile from "./components/Profile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route ,withRouter} from "react-router-dom";
 import Timeline from "./components/Timeline";
 //redux
 import { Provider } from "react-redux";
@@ -26,7 +26,7 @@ useEffect(()=>{
         <Route path="/" exact component={Homepage} />
         <Route path="/login" exact component={Homepage} />
         <Route path="/profile" component={Profile} />
-        <Route path="/newsfeed" component={Timeline} exact />
+        <Route path="/newsfeed" component={withRouter(Timeline)} />
       </Router>
     </Provider>
   );
